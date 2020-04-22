@@ -30,7 +30,7 @@ class MainAppWindow(QMainWindow, Ui_MainAppWindow):
         start_frame_number, abs_path_with_padding = converter_utils.get_frame_number_and_path(abs_single_exr_file_path)
         print(start_frame_number,abs_path_with_padding,abs_mov_file_path)
         fmpg_cmd=['ffmpeg', '-hide_banner', '-loglevel', 'quiet', '-y', '-start_number',start_frame_number, '-i',abs_path_with_padding, '-vcodec', 'mpeg4', abs_mov_file_path]
-        return_code =subprocess.Popen(fmpg_cmd)
+        return_code =subprocess.call(fmpg_cmd)
 
         
     def open_mov_folder(self):
